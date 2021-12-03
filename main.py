@@ -9,5 +9,7 @@ response = requests.get(url)
 data = json.loads(response.text)
 
 count = len(data)
+rand = random.randrange(1,count)
+quiz = pd.DataFrame(data)
 
-print(count)
+print(quiz['category'][rand])
