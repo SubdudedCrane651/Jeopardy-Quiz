@@ -15,81 +15,37 @@ quiz = pd.DataFrame(data)
 
 def quizchoice():
   os.system('clear')
-  print("[1] 100 [2] 200 [3] 300 [4] 400 [5] 500 [6] 600 [7] 800 [8] 1000 [9] 1200 [10] 1600 [11] 2000")
+  print("Enter from 100 to 10000 in increments of 100")
   wager =input("How much do you want to wager ")
 
   go=True
 
   while go:
     global rand
-    rand = random.randrange(1,count+1) 
+    rand = random.randrange(1,count) 
     value = quiz['value'][rand]
     #removedollar = ''.join([value for i in range(len(value)) if i != 0])
-    removedollar = value
-    removedollar = removedollar.replace('$', '')
     try:
+     removedollar = value
+     removedollar = removedollar.replace('$', '')
      removecomma = removedollar.replace(',', '')
     except:
-       removecomma=removedollar
+       removecomma=0
     
-    if wager == '1':    
-      if int(removecomma) == 100:
+    try:
+      wager1 = int(wager)/10
+      if str(wager1).find('.0') ==-1:
+        quizchoice()
+        if go:
+         return  
+      if int(wager) == int(removecomma):
         go=False
       else:
-        go=True
-    elif wager == '2':
-      if int(removecomma) == 200:
-        return
-      else:
-        go=True
-    elif wager == '3':
-      if int(removecomma) == 300:
-        go=False
-      else:
-        go=True
-    elif wager == '4':
-      if int(removecomma) == 400:
-        go=False
-      else:
-        go=True
-    elif wager == '5':
-      if int(removecomma) == 500:
-       go=False
-      else:
-        go=True
-    elif wager == '6':
-     if int(removecomma) == 600:
-        go=False
-     else:
-        go=True      
-    elif wager == '7':
-      if int(removecomma) == 800:
-        go=False
-      else:
-        go=True
-    elif wager == '8':
-      if int(removecomma) == 1000:
-        go=False
-      else:
-        go=True 
-    elif wager == '9':
-      if int(removecomma) == 1200:
-        go=False
-      else:
-        go=True
-    elif wager == '10':
-      if int(removecomma) == 1600:
-        go=False
-      else:
-        go=True
-    elif wager == '11':
-      if int(removecomma) == 2000:
-        go=False
-      else:
-        go=True
-    elif wager == '':
+        continue
+    except:
       quizchoice()
-   
+      if go:
+       return
 
 quizchoice()
 
