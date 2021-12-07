@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import random
 import os
+from art import *
 
 #The Jeopardy JSON file at my personal website
 #Where you will find other codes and languages
@@ -18,6 +19,8 @@ quiz = pd.DataFrame(data)
 def quizchoice():
   """Enter in a wager and get a Jeopardy question"""
   os.system('clear')
+  Art=text2art("Jeopardy")
+  print(Art)
   print("Enter from 100 to 10000 in increments of 100")
   wager =input("How much do you want to wager ")
 

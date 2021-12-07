@@ -7,6 +7,7 @@ authors = ["SubduedCrane651 <<>>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 pandas = "^1.3.4"
+art = "^5.3"
 
 [tool.poetry.dev-dependencies]
 
